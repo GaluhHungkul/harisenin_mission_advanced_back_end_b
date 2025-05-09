@@ -17,7 +17,6 @@ const addMovie = async (req, res) => {
 //? READ
 
 const getAllMovie = async (req,res) => {
-    console.log("api diminta...")
     try {
         const { search, genre, sort_by, order } = req.query
         let sql = "SELECT * FROM movies WHERE 1=1"
@@ -36,7 +35,6 @@ const getAllMovie = async (req,res) => {
             sql += ` ORDER BY ${sort_by} ${sortOrder}`
         }
         const [data] = await db.execute(sql, params)
-        console.log("api dikirim...")
         res.status(201).json({ data })
     } catch (error) {
         res.status(500).json({ message : "Terjadi kesalahan di sisi server" })
