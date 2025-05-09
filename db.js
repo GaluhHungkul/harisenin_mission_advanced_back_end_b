@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const mysql = require("mysql2")
 
 const rawDataTableMovies = [
@@ -16,12 +17,19 @@ const rawDataTableMovies = [
 const valuesTableMovies = rawDataTableMovies.map(({title, year, genre}) => [title, year, genre])
 
 const db = mysql.createConnection({
+=======
+const mysql = require("mysql2/promise")
+
+
+const db = mysql.createPool({
+>>>>>>> feat/controller-recovery
     host : "localhost",
     user : "root",
     password : "",
     database : "chill_movies"
 })
 
+<<<<<<< HEAD
 db.connect((err) => {
     if(err) throw err;
     console.log("MySQL connected")
@@ -74,3 +82,7 @@ const checkAndSeed = (namaTable) => {
         })
     })
 }
+=======
+module.exports = db;
+
+>>>>>>> feat/controller-recovery
